@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>股票复盘笔记</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark"></div>
+          <div>
+            <div class="brand-title">股票复盘</div>
+            <div class="brand-subtitle">本地知识库</div>
+          </div>
+        </div>
+
+        <div class="sidebar-actions">
+          <button id="newPageBtn" class="button button-primary" type="button">新建页面</button>
+          <button id="newDailyBtn" class="button" type="button">每日复盘</button>
+        </div>
+
+        <nav class="nav-section" aria-label="主导航">
+          <div class="nav-title">工作区</div>
+          <button class="nav-item is-active" type="button" data-workspace="dashboard">工作台</button>
+          <button class="nav-item" type="button" data-workspace="review">复盘</button>
+          <button class="nav-item" type="button" data-workspace="trades">交割单</button>
+          <button class="nav-item" type="button" data-workspace="research">股票研究</button>
+        </nav>
+
+        <div class="nav-section page-section">
+          <div class="nav-title">工作区目录</div>
+          <div id="pageList" class="page-list"></div>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div class="search-wrap">
+            <input id="globalSearch" class="search-input" type="search" placeholder="搜索页面" autocomplete="off" />
+            <div id="searchResults" class="search-results is-hidden"></div>
+          </div>
+          <div id="saveStatus" class="save-status">已保存</div>
+        </header>
+
+        <section id="dashboardView" class="dashboard-view is-hidden"></section>
+
+        <section id="editorSurface" class="editor-surface">
+          <div class="page-header">
+            <input id="pageTitle" class="title-input" type="text" placeholder="未命名页面" />
+            <div class="page-actions">
+              <select id="pageType" class="type-select" aria-label="页面类型">
+                <option value="note">普通笔记</option>
+                <option value="daily_review">每日复盘</option>
+                <option value="stock_research">个股研究</option>
+                <option value="industry_research">产业链研究</option>
+                <option value="report_review">研报拆解</option>
+                <option value="event_analysis">消息分析</option>
+                <option value="article">长文文章</option>
+              </select>
+              <button id="deletePageBtn" class="button button-danger" type="button">删除笔记</button>
+            </div>
+          </div>
+
+          <div class="live-editor">
+            <textarea id="markdownEditor" class="markdown-editor is-hidden" spellcheck="false"></textarea>
+            <article id="markdownPreview" class="markdown-preview live-document" contenteditable="true" spellcheck="false"></article>
+          </div>
+        </section>
+
+        <section id="tradeView" class="trade-view is-hidden">
+          <div class="view-header">
+            <div>
+              <h1>交割单</h1>
+              <p>像表格一样直接录入交易，股票名称按输入原样保存。</p>
+            </div>
+            <button id="addTradeBtn" class="button button-primary" type="button">新增交易</button>
+          </div>
+          <div id="tradeSummary" class="metric-strip"></div>
+          <div id="tradeTableWrap" class="trade-table-wrap"></div>
+        </section>
+
+        <section id="securityProfileView" class="security-profile-view is-hidden"></section>
+      </main>
+
+      <aside class="rightbar">
+        <section class="side-panel side-panel-fill">
+          <div class="panel-title">页面关联</div>
+          <div id="linkPanel" class="link-panel"></div>
+        </section>
+      </aside>
+    </div>
+
+    <div id="toast" class="toast is-hidden"></div>
+    <script src="/app.js"></script>
+  </body>
+</html>

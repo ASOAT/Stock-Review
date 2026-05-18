@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["DOM", "ES2022"],
+    "strict": true,
+    "module": "none",
+    "outFile": "public/app.js",
+    "removeComments": true,
+    "skipLibCheck": true
+  },
+  "include": ["src/client.ts"]
+}

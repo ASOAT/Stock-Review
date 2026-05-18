@@ -1,0 +1,16 @@
+{
+  "name": "stock-review-notebook",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local stock review notebook MVP with Markdown pages and security search.",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc -p tsconfig.client.json && tsc -p tsconfig.server.json",
+    "dev": "npm run build && node dist/server/server.js",
+    "start": "node dist/server/server.js",
+    "typecheck": "tsc -p tsconfig.client.json --noEmit && tsc -p tsconfig.server.json --noEmit"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
